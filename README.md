@@ -53,6 +53,7 @@ Para visualizar os relatórios:
 Api-Automation-Project/
 │
 ├── cypress/
+│   ├── downloads/           # Arquivos baixados durante os testes
 │   ├── e2e/                 # Arquivos de testes de API
 │   ├── fixtures/            # Dados de entrada para os testes
 │   ├── reports/             # Relatórios gerados pelos testes
