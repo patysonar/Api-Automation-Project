@@ -20,15 +20,22 @@ module.exports = defineConfig({
           api_url: 'https://reqres.in/api/' // URL completa da API de staging
         };
       } else {
-        config.baseUrl = 'https://localhost:3000'; // URL local
+        config.baseUrl = 'https://reqres.in/api/'; // URL local
         config.env = {
           env: 'local',
-          api_url: 'https://localhost:3000/api/v1/' // URL da API local
+          api_url: 'https://reqres.in/api/' // URL da API local
         };
       }
 
       // Retorna a configuração ajustada
       return config;
     },
+  },
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true,
   },
 });

@@ -31,7 +31,7 @@ Entre no diretório do projeto e instale as dependências necessárias:
 ## ▶️ Execução dos Testes
 ### **1. Testes Locais**
 Para executar os testes de API, utilize o comando:
-- npm run test
+- npx cypress open
 
 ### **2. Configuração de Variáveis de Ambiente**
 Caso necessário, configure variáveis de ambiente no arquivo .env. 
@@ -45,8 +45,9 @@ Para visualizar os relatórios:
 2. Abra o arquivo HTML gerado no navegador.
 
 ## 🛠️ Scripts Disponíveis
-- npm run test: Executa os testes de API.
-- npm run test: report: Gera relatórios detalhados dos testes (se configurado).
+- npx cypress open ou npm run cypress:run:dev : Executa os testes de API.
+- npm run generate-report: Gera relatórios detalhados dos testes (se configurado).
+
 
 ## 📂 Estrutura do Projeto
 ```plaintext
