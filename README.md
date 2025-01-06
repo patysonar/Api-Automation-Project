@@ -52,24 +52,40 @@ Neste projeto, utilizamos a URL `https://reqres.in` em todos os ambientes, pois 
 
 
 ## ▶️ Execução dos Testes
-### **1. Testes Locais**
-Para executar os testes de API, utilize o comando:
-- npx cypress open
+
+### **1. Executando os Testes**
+O projeto oferece diferentes formas de execução dos testes, dependendo do ambiente ou do tipo de relatório necessário.
+
+- npx cypress open: Abre o Cypress no modo interativo para execução manual dos testes.
+- npm run cypress:run:dev: Executa os testes diretamente no terminal para o ambiente de desenvolvimento.
+- npm run generate-report: Gera relatórios detalhados com base nos testes executados (se configurado no projeto).
+
 
 ### **2. Configuração de Variáveis de Ambiente**
 Caso necessário, configure variáveis de ambiente no arquivo .env. 
 - Exemplo:
 API_BASE_URL=https://reqres.in
 
+## 📋 Linting do Código
+Este projeto utiliza o ESLint para garantir que o código siga padrões de qualidade e estilo.
+
+### **Comandos de Lint**
+lint: Verifica o código e reporta quaisquer problemas de linting.
+- npm run lint
+
+lint:fix: Verifica o código e tenta corrigir automaticamente os problemas de lint.
+- npm run lint:fix
+
+### **Como funciona**
+- lint: Executa o comando npx eslint cypress/**/*.cy.js cypress/support/**/*.js para verificar os arquivos de teste e suporte do Cypress.
+- lint:fix: Usa o comando npx eslint cypress/**/*.cy.js cypress/support/**/*.js --fix para corrigir problemas automaticamente.
+
+
 ## 📊 Relatórios
 Os relatórios gerados pelos testes serão armazenados no diretório cypress/reports.
 Para visualizar os relatórios:
 1. Navegue até a pasta cypress/reports.
 2. Abra o arquivo HTML gerado no navegador.
-
-## 🛠️ Scripts Disponíveis
-- npx cypress open ou npm run cypress:run:dev : Executa os testes de API.
-- npm run generate-report: Gera relatórios detalhados dos testes (se configurado).
 
 
 ## 📂 Estrutura do Projeto
@@ -85,7 +101,11 @@ Api-Automation-Project/
 │
 ├── .github/                 # Configuração de workflows (CI/CD)
 ├── .env                     # Variáveis de ambiente (opcional)
+├── .gitignore               # Arquivos/diretórios ignorados no controle de versão
+├── .prettierrc              # Configuração do Prettier
+├── eslint.config.js         # Configuração do ESLint
 ├── package.json             # Dependências do projeto
+├── package-lock.json        # Versões bloqueadas das dependências
 ├── README.md                # Documentação do projeto
 └── cypress.config.js        # Configurações do Cypress
                              # - Define ambientes (dev, stg, local)

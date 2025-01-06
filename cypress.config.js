@@ -1,7 +1,6 @@
-const { defineConfig } = require("cypress");
-require('dotenv').config(); // Não precisaremos de dotenv, mas mantemos se quiser continuar com alguma outra configuração do .env
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       const env = process.env.CYPRESS_ENVIROMENT; // Pega o valor de CYPRESS_ENVIROMENT
