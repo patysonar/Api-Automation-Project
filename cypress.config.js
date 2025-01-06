@@ -3,7 +3,7 @@ import { defineConfig } from "cypress";
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      const env = process.env.CYPRESS_ENVIROMENT; // Pega o valor de CYPRESS_ENVIROMENT
+      const env = process.env.CYPRESS_ENVIROMENT|| "dev"; // Pega o valor de CYPRESS_ENVIROMENT
 
       // Dependendo do ambiente, configura as URLs
       if (env === 'dev') {
