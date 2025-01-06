@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-03T21:45:12.046Z",
+    "end": "2025-01-03T21:45:12.936Z",
+    "duration": 890,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "01b586fb-a036-4bb2-a773-12c16f53a529",
+      "title": "",
+      "fullFile": "cypress\\e2e\\register.cy.js",
+      "file": "cypress\\e2e\\register.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "91274d0d-45af-4c1a-bdab-fcf981a1e7a1",
+          "title": "Registro de Usuário",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve registrar o usuário com sucesso",
+              "fullTitle": "Registro de Usuário Deve registrar o usuário com sucesso",
+              "timedOut": null,
+              "duration": 824,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Teste de registro\ncy.log(`Requisição realizada com sucesso! ID: ${userId}, Token: ${userToken}`);",
+              "err": {},
+              "uuid": "5b8a0eee-e9cd-40c2-b0ff-3fbc16dfc8d9",
+              "parentUUID": "91274d0d-45af-4c1a-bdab-fcf981a1e7a1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5b8a0eee-e9cd-40c2-b0ff-3fbc16dfc8d9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 824,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
