@@ -2,22 +2,14 @@ describe('Registro de Usuário', () => {
   it('Registrando o usuário com sucesso', () => {
     // Teste de registro com status code esperado de 200
     cy.registerUser('eve.holt@reqres.in', 'pistol', 200).then((response) => {
-      const userId = response.body.id;
-      const userToken = response.body.token;
-
-      cy.log(
-        `Requisição realizada com sucesso! ID: ${userId}, Token: ${userToken}`,
-      );
+      expect(response.status).to.eq(200); // Verifica se o status é 200
     });
   });
 
   it('Tentando registrar um usuário com dados inválidos', () => {
-    // Teste de registro com status code esperado de 400 (erro)
-    cy.registerUser('sydney@fife', null, 400).then((response) => {
-      // Log da mensagem de erro retornada pela API
-      cy.log(
-        `Erro esperado no registro: Status ${response.status}, Mensagem: ${response.body.error}`,
-      );
+    cy.registerUser('sydney@fife', null, 500).then((response) => {
+      expect(response.status).to.eq(400); // Verifica se o status é 400
+      expect(response.body.error).to.include('Missing password');
     });
   });
 

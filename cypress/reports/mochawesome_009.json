@@ -1,0 +1,205 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-01-07T00:41:54.144Z",
+    "end": "2025-01-07T00:42:02.836Z",
+    "duration": 8692,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ecd60f3f-6314-40b0-831f-81920c0ba7ce",
+      "title": "",
+      "fullFile": "cypress\\e2e\\register.cy.js",
+      "file": "cypress\\e2e\\register.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7e184489-27f8-443b-8b26-9a26f619320b",
+          "title": "Registro de Usuário",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registrando o usuário com sucesso",
+              "fullTitle": "Registro de Usuário Registrando o usuário com sucesso",
+              "timedOut": null,
+              "duration": 1169,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Teste de registro com status code esperado de 200\ncy.registerUser('eve.holt@reqres.in', 'pistola', 200).then(response => {\n  const userId = response.body.id;\n  const userToken = response.body.token;\n  cy.log(`Requisição realizada com sucesso! ID: ${userId}, Token: ${userToken}`);\n});",
+              "err": {},
+              "uuid": "22ab7ff6-ebf9-430e-b979-59ba774bfea9",
+              "parentUUID": "7e184489-27f8-443b-8b26-9a26f619320b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentando registrar um usuário com dados inválidos",
+              "fullTitle": "Registro de Usuário Tentando registrar um usuário com dados inválidos",
+              "timedOut": null,
+              "duration": 2353,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Teste de registro com status code esperado de 400 (erro)\ncy.registerUser('invalid_email', '123', 400).then(response => {\n  cy.log(`Falha esperada na requisição: ${response.statusText}`);\n});",
+              "err": {
+                "message": "Error: Erro ao registrar: Bad Request",
+                "estack": "Error: Erro ao registrar: Bad Request\n    at Context.eval (webpack:///./cypress/support/commands.js:18:14)",
+                "diff": null
+              },
+              "uuid": "2f63aad7-44d5-4c6b-8cc7-cd47c749260b",
+              "parentUUID": "7e184489-27f8-443b-8b26-9a26f619320b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Atualizando o usuário",
+              "fullTitle": "Registro de Usuário Atualizando o usuário",
+              "timedOut": null,
+              "duration": 649,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Teste de atualização com um usuário já registrado\nconst userId = 2; // Um ID fixo ou gerado dinamicamente\nconst updatedUserData = {\n  nome: 'morpheus',\n  emprego: 'zion resident'\n};\ncy.updateUser(userId, updatedUserData, 200).then(response => {\n  const updatedAt = response.body.updatedAt;\n  cy.log(`Informações do usuário atualizadas com sucesso. Novo nome: ${response.body.nome}, \n    Novo emprego: ${response.body.emprego}, Data de atualização: ${updatedAt}`);\n});",
+              "err": {},
+              "uuid": "a4332cad-fd65-4f53-8eca-4a94e024a191",
+              "parentUUID": "7e184489-27f8-443b-8b26-9a26f619320b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentando atualizar o usuário com dados inválidos",
+              "fullTitle": "Registro de Usuário Tentando atualizar o usuário com dados inválidos",
+              "timedOut": null,
+              "duration": 549,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userId = 2;\nconst updatedUserData = {\n  nome: '',\n  emprego: ''\n};\ncy.updateUser(userId, updatedUserData, 400).then(response => {\n  cy.log(`Falha esperada na requisição: ${response.statusText}`);\n});",
+              "err": {},
+              "uuid": "9bed5667-f753-4265-8c42-aa08f8c3fd83",
+              "parentUUID": "7e184489-27f8-443b-8b26-9a26f619320b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deletando o usuário com sucesso",
+              "fullTitle": "Registro de Usuário Deletando o usuário com sucesso",
+              "timedOut": null,
+              "duration": 541,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Teste de deleção do usuário\nlet userId;\ncy.deleteUser(userId); // Passando o ID do usuário para o comando de deleção\ncy.log(`Usuário com ID ${userId} deletado com sucesso.`);",
+              "err": {},
+              "uuid": "01a045eb-7039-4bfd-9411-9bdd79c276c0",
+              "parentUUID": "7e184489-27f8-443b-8b26-9a26f619320b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentando deletar um usuário inexistente",
+              "fullTitle": "Registro de Usuário Tentando deletar um usuário inexistente",
+              "timedOut": null,
+              "duration": 587,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let userId = 99999; // ID fictício\ncy.deleteUser(userId, 404); // Espera-se erro 404 (não encontrado)\ncy.log(`Falha esperada ao tentar deletar usuário inexistente.`);",
+              "err": {},
+              "uuid": "905b958b-32b7-4b20-99c0-56e359fc491f",
+              "parentUUID": "7e184489-27f8-443b-8b26-9a26f619320b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "22ab7ff6-ebf9-430e-b979-59ba774bfea9",
+            "a4332cad-fd65-4f53-8eca-4a94e024a191",
+            "9bed5667-f753-4265-8c42-aa08f8c3fd83",
+            "01a045eb-7039-4bfd-9411-9bdd79c276c0",
+            "905b958b-32b7-4b20-99c0-56e359fc491f"
+          ],
+          "failures": [
+            "2f63aad7-44d5-4c6b-8cc7-cd47c749260b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5848,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
