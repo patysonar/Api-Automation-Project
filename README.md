@@ -1,11 +1,56 @@
 # Api-Automation-Project
-Este projeto é uma solução de automação de testes de API utilizando o endpoint [Reqres.in](https://reqres.in).
+Este repositório é uma solução de automação de testes de API utilizando o endpoint [Reqres.in](https://reqres.in).
 
 ---
 
 ## 🚀 Funcionalidades Automação
 
-- Registro de usuário bem-sucedido na rota `/api/register`.
+- Registro de usuário na rota `/api/register`.
+- Atualização de usuário via rota `/api/users/{userId}`.
+- Exclusão de usuário na rota `/api/users/{userId}`.
+
+---
+
+## 🧪 Casos de Teste Implementados
+
+### **1. Registro de Usuário**
+
+#### Cenários:
+- **Registro bem-sucedido:** Retorno de status `200` com token gerado.
+- **Registro com dados inválidos:** Retorno de status `400` e mensagem de erro apropriada.
+
+Exemplo de teste:
+```javascript
+cy.registerUser('eve.holt@reqres.in', 'pistol', 200).then((response) => {
+  expect(response.status).to.eq(200);
+  expect(response.body).to.have.property('token');
+});
+```
+
+### **2. Atualização de Usuário**
+
+#### Cenários:
+- **Atualização bem-sucedida:** Retorno de status `200` com dados atualizados corretamente.
+- **Atualização com dados inválidos:** Retorno de status `400`.
+
+Exemplo de teste:
+```javascript
+cy.updateUser(2, { name: 'morpheus', job: 'zion resident' }, 200).then((response) => {
+  expect(response.body).to.have.property('name', 'morpheus');
+  expect(response.body).to.have.property('job', 'zion resident');
+});
+```
+
+### **3. Deleção de Usuário**
+
+#### Cenários:
+- **Deleção bem-sucedida:** Retorno de status `204`.
+- **Deleção de usuário inexistente:** Retorno de status `404`.
+
+Exemplo de teste:
+```javascript
+cy.deleteUser(3, 204);
+```
 
 ---
 
