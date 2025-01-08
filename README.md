@@ -6,7 +6,7 @@ Este repositório é uma solução de automação de testes de API utilizando o 
 ## 🚀 Funcionalidades Automação
 
 - Registro de usuário na rota `/api/register`.
-- Atualização de usuário via rota `/api/users/{userId}`.
+- Atualização de usuário na rota `/api/users/{userId}`.
 - Exclusão de usuário na rota `/api/users/{userId}`.
 
 ---
